@@ -12,10 +12,11 @@ public class RegistrationServiceImpl implements RegistrationService {
 	@Autowired
 	CustomerRepository customerRepository;
 	@Override
-	public int addNewCustomer(CustomerDetails customerDetails) {
+	public CustomerDetails addNewCustomer(CustomerDetails customerDetails) {
 		// TODO Auto-generated method stub
 		CustomerDetails newCustomer =  customerRepository.save(customerDetails);
-		return newCustomer.getCustomerId();
+		return newCustomer;
 	}
+	
 
 }

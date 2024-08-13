@@ -6,5 +6,6 @@ import com.ofss.main.entity.CustomerDetails;
 
 @Service
 public interface RegistrationService {
-	public int addNewCustomer(CustomerDetails customerDetails);
+	public CustomerDetails addNewCustomer(CustomerDetails customerDetails);
+	
 }

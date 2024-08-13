@@ -14,8 +14,9 @@ import jakarta.persistence.Table;
 @Table(name="customer_master")
 public class CustomerDetails {
 	
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="customer_id")
 	private int customerId;
 	@Column(name="first_name")

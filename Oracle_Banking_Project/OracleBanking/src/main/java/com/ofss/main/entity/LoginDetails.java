@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 public class LoginDetails {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int customerId;
 	private String username;
 	private String password;

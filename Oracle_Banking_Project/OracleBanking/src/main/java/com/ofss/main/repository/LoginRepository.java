@@ -8,4 +8,5 @@ import com.ofss.main.entity.LoginDetails;
 @Repository
 public interface LoginRepository extends CrudRepository<LoginDetails, Integer>{
 	LoginDetails findByUsername(String username);
+
 }

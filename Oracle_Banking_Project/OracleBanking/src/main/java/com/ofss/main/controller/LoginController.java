@@ -27,7 +27,7 @@ public class LoginController {
 	@Autowired
 	RegistrationService registrationService;
 	
-	int newCustomer = 0;
+	int newCustomerId = 0;
 //	http://localhost:8080/obank/loginstatus
 //	@GetMapping("/loginstatus/{username}/{password}")
 //	public ResponseEntity<String> validateLogin(@PathVariable("username") String username,@PathVariable("password") String password){
@@ -49,16 +49,17 @@ public class LoginController {
 	}
 	
 	@PostMapping("newregistration")
-	public int addNewCustomer(@RequestBody CustomerDetails customerDetails) {
-		int newCustomerId = registrationService.addNewCustomer(customerDetails);
-		newCustomer = newCustomerId;
+	public CustomerDetails addNewCustomer(@RequestBody CustomerDetails customerDetails) {
+		CustomerDetails newCustomer = registrationService.addNewCustomer(customerDetails);
+		newCustomerId = newCustomer.getCustomerId();
 		return newCustomer;
 	}
 	
 	@PostMapping("newlogin")
 	public LoginDetails addNewLogin(@RequestBody LoginDetails loginDetails){
-//		LoginDetails newlogin = new LoginDetails(newCustomer, loginDetails.getUsername(), loginDetails.getPassword());
-		return loginService.addNewLogin(loginDetails);
+		
+		LoginDetails newlogin = new LoginDetails(newCustomerId, loginDetails.getUsername(), loginDetails.getPassword());
+		return loginService.addNewLogin(newlogin);
 	}
 	
 	
