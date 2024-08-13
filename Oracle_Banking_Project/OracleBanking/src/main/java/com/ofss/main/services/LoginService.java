@@ -7,4 +7,5 @@ import com.ofss.main.entity.LoginDetails;
 @Service
 public interface LoginService {
 	public int loginValidation(LoginDetails logindetail);
+	public LoginDetails addNewLogin(LoginDetails loginDetails);
 }

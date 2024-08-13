@@ -27,5 +27,10 @@ public class LoginServiceImpl implements LoginService {
 		}
 		
 	}
+	@Override
+	public LoginDetails addNewLogin(LoginDetails loginDetails) {
+		
+		return loginRepository.save(loginDetails);
+	}
 
 }
