@@ -14,7 +14,46 @@ public class LoginDetails {
 	private int customerId;
 	private String username;
 	private String password;
+	private int loginAttempts;
+	private String customerStatus;
 	
+	public LoginDetails(int customerId, String username, String password, int loginAttempts, String customerStatus) {
+		super();
+		this.customerId = customerId;
+		this.username = username;
+		this.password = password;
+		this.loginAttempts = loginAttempts;
+		this.customerStatus = customerStatus;
+	}
+
+
+	public String getCustomerStatus() {
+		return customerStatus;
+	}
+
+
+	public void setCustomerStatus(String customerStatus) {
+		this.customerStatus = customerStatus;
+	}
+
+
+	@Override
+	public String toString() {
+		return "LoginDetails [customerId=" + customerId + ", username=" + username + ", password=" + password
+				+ ", loginAttempts=" + loginAttempts + ", customerStatus=" + customerStatus + "]";
+	}
+
+
+	public int getLoginAttempts() {
+		return loginAttempts;
+	}
+
+
+	public void setLoginAttempts(int loginAttempts) {
+		this.loginAttempts = loginAttempts;
+	}
+
+
 	public LoginDetails() {
 		// TODO Auto-generated constructor stub
 	}

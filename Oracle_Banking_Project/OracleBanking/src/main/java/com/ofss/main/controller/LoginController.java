@@ -28,7 +28,8 @@ public class LoginController {
 	RegistrationService registrationService;
 	
 	int newCustomerId = 0;
-//	http://localhost:8080/obank/loginstatus
+//	http://localhost:8080/obank/login
+	
 //	@GetMapping("/loginstatus/{username}/{password}")
 //	public ResponseEntity<String> validateLogin(@PathVariable("username") String username,@PathVariable("password") String password){
 //		LoginDetails login = new LoginDetails(0, username, password);
@@ -41,7 +42,7 @@ public class LoginController {
 //        }
 //	}
 	
-	@PostMapping("loginstatus")
+	@PostMapping("login")
 	public int validateUserLogin(@RequestBody LoginDetails loginDetails) {
 		LoginDetails login = new LoginDetails(0,loginDetails.getUsername(),loginDetails.getPassword());
 		int customerId = loginService.loginValidation(login);
@@ -58,7 +59,7 @@ public class LoginController {
 	@PostMapping("newlogin")
 	public LoginDetails addNewLogin(@RequestBody LoginDetails loginDetails){
 		
-		LoginDetails newlogin = new LoginDetails(newCustomerId, loginDetails.getUsername(), loginDetails.getPassword());
+		LoginDetails newlogin = new LoginDetails(newCustomerId, loginDetails.getUsername(), loginDetails.getPassword(),0,"Not Approved");
 		return loginService.addNewLogin(newlogin);
 	}
 	
