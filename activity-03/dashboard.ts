@@ -8,6 +8,7 @@
 import * as AccUtils from "../accUtils";
 import * as ko from "knockout";
 import * as Bootstrap from "ojs/ojbootstrap";
+
 import "oj-c/input-number";
 import "oj-c/input-text";
 import 'oj-c/input-password';
@@ -16,6 +17,8 @@ import "ojs/ojknockout";
 import "ojs/ojformlayout";
 import "oj-c/button";
 import 'oj-c/message-banner';
+import "oj-c/progress-bar";
+
 import { MessageBannerItem, CMessageBannerElement } from 'oj-c/message-banner';
 import MutableArrayDataProvider = require('ojs/ojmutablearraydataprovider');
 
@@ -61,6 +64,18 @@ class DashboardViewModel {
       data = data.filter((message) => (message as any).id !== closeMessageKey);
       this.personalInformationMessages.data = data;
     };
+
+
+    // progress bar
+    readonly progressBar = () => {
+      
+    };
+
+    private readonly step = ko.observable(0);
+    readonly progressValue = ko.pureComputed(() => {
+      return Math.min(this.step(), 100);
+    });
+  
   
   
   constructor() {
@@ -70,11 +85,28 @@ class DashboardViewModel {
     this.password = ko.observable(null);
     this.date = ko.observable(null);
     this.counter = 0;
+    
+
+    const initialPersonalSectionData: DemoMessageBannerItem[] = [];
+
+    this.personalInformationMessages = new MutableArrayDataProvider(initialPersonalSectionData, {
+      keyAttributes: 'id'
+    });
+    this.counter = 0;
+
+// progress bar
+    window.setInterval(() => {
+      this.step((this.step() + 1) % 200);
+    }, 30);
+
+
   }
 
+  
 
 
  
 }
+
 
 export = DashboardViewModel;
