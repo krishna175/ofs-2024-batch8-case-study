@@ -1,0 +1,53 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Registration</h1>
+
+  
+    <oj-c-form-layout max-columns="2" direction="row">
+
+      <oj-c-input-text id="text-input" value="{{firstname}}" label-hint="Firstname"
+        label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{lastname}}" label-hint="lastname"
+      label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{address1}}" label-hint="House no"
+        label-edge="inside"></oj-c-input-text>
+      
+      <oj-c-input-text id="text-input" value="{{address2}}" label-hint="Town/City"
+      label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{address3}}" label-hint="Nearest Landmark "
+      label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{city}}" label-hint="City"
+      label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{state}}" label-hint="State"
+      label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{zip}}" label-hint="Pincode "
+      label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{phone}}" label-hint="Phone Number"
+      label-edge="inside"></oj-c-input-text>
+
+      <oj-c-input-text id="text-input" value="{{email}}" label-hint="Email"
+      label-edge="inside"></oj-c-input-text>
+
+      </oj-c-input-date-text>
+    </oj-c-form-layout>
+
+    <oj-c-button
+    id="button1"
+    on-oj-action="[[buttonAction]]"
+    disabled="[[firstname()==null || firstname().trim()==='']]"
+    label="Register"
+  ></oj-c-button>
+
+  
+</div>
